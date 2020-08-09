@@ -27,5 +27,7 @@ jobs:
       run: docker -v
     - name: repo
       run: ls
+    - name: pwd
+      run: pwd
 
 
