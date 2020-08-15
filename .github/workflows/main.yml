@@ -22,7 +22,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@master
     - name: Build
-      run: docker build -t avl:latest .
+      run: docker build -t avl:latest -f alerter .
 
 
 
