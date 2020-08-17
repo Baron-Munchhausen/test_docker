@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       LOGIN: ${{ secrets.DOCKER_HUB_LOGIN }}
+      RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
