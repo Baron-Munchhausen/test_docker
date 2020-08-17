@@ -7,8 +7,9 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    
+  #pull_request:
+  #  branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,6 +31,6 @@ jobs:
       run:  echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} --password-stdin
       
     - name: Push image to docker.io
-      run: docker push $LOGIN/avl:latest
+      run: docker push $LOGIN/avl:latest $LOGIN/avl:1
 
 
