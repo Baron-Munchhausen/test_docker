@@ -27,10 +27,15 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@master
+    - name: Set output
+      id: vars
+      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
     - name: Check output
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
-      run: echo $RELEASE_VERSION
+      run: |
+        echo $RELEASE_VERSION
+        echo ::set-output name=tag::${GITHUB_REF#refs/*/}
     - name: Build
       run: docker build -t $LOGIN/avl:latest -f alerter .
     - name: Build
