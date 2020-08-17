@@ -26,6 +26,8 @@ jobs:
     - uses: actions/checkout@master
     - name: Build
       run: docker build -t $LOGIN/avl:latest -f alerter .
+    - name: Build
+      run: docker build -t $LOGIN/avl:1 -f alerter .
       
     - name: Login to docker.io
       run:  echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} --password-stdin
