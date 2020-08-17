@@ -30,6 +30,7 @@ jobs:
     - name: Check output
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+      run: echo $RELEASE_VERSION
     - name: Build
       run: docker build -t $LOGIN/avl:latest -f alerter .
     - name: Build
